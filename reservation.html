@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Aurora Yoga Gym</title>
+	<link rel="stylesheet" href="css/styles.css">
+	<link rel ="shortcut icon" href="images/favicon.ico">
+	<link rel ="icon" type="image/png" href="images/favicon-32x32.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+	<link rel="icon" sizes="192x192" href="images/android-touch-icon.png">
+	<link rel ="icon" type="image/png" href="images/favicon-16x16.png">
+    <link href="https://fonts.googleapis.com/css2?family=Delius&family=Kalam:wght@300;400;700&family=Shadows+Into+Light&display=swap" 
+    rel="stylesheet">
+    <script>
+        function doClear() {
+            document.forms["membership-form"]["first-name"].value = "";
+            document.forms["membership-form"]["last-name"].value = "";
+            document.forms["membership-form"]["email"].value = "";
+            document.forms["membership-form"]["password"].value = "";
+            
+            document.forms["membership-form"]["membership-type"][0].checked = false;
+            document.forms["membership-form"]["membership-type"][1].checked = false;
+            document.forms["membership-form"]["membership-type"][2].checked = false;
+            return;
+        }
+        function doRegistr() {
+            if(validateText() == false)
+            {
+                alert("Required information is missing");
+                return;
+            }
+            if (validateRadio() == false)
+            {
+                alert("Required membership Type is missing");
+                return;
+            }
+            if (validatePaymentPlan() == false)
+            {
+                alert("Required payment plan is missing");
+                return;
+            }
+                alert ("Your Registration has been completed");
+                return;
+        }
+
+        function validateText() {
+            var firstname = document.forms["membership-form"]["first-name"].value;
+            if(firstname.length == 0) return false;
+            var lastname = document.forms["membership-form"]["last-name"].value;
+            if(lastname.length == 0) return false;
+            var email = document.forms["membership-form"]["email"].value;
+            if(email.length == 0) return false;
+            var password = document.forms["membership-form"]["password"].value;
+            if(password.length == 0) return false;
+            return true;
+        }
+
+        function validateRadio() {
+            if (document.forms["membership-form"]["membership-type"][0].checked) return true;
+            if (document.forms["membership-form"]["membership-type"][1].checked) return true;
+            if (document.forms["membership-form"]["membership-type"][2].checked) return true;
+            return false;
+        }
+        
+        function validatePaymentPlan() {
+            if (document.forms["membership-form"]["payment-plan"][0].checked) return true;
+            if (document.forms["membership-form"]["payment-plan"][1].checked) return true;
+            return false;
+        }
+
+    </script>
+</head>
+<body>
+<header>
+	<div id="container">
+
+	<a href="index.html"><img src="images/Aurora_Gym_Logo.png" alt="Aurora Yoga Gym Logo"></a>
+
+</header>
+	<nav>
+		<ul>
+			<li><a href="index.html">About Us</a></li>
+			<li><a href="reservation.html">Reservation</a></li>
+			<li><a href="events.html">Events</a></li>
+		</ul>
+	</nav>
+	<div id="hero">
+		<img src="images/Hero.png" alt="Yoga pose silhouette with a sunset background">
+	</div>
+<main>
+    <h1>Reservation</h1>
+    <p>To register, please fill out the form below. 
+        You will be guaranteed a 30 day free trail of our basic membership, providing our weekly yoga lessons by our professional yoga instructors, 
+        a free massage and our special addition detoxifying tea set. 
+        For more information call us at <a href="tel:18542705500">1(854-270-5500)</a> or email us at 
+        <a href="mailto:Aurorayoga@gym.com">Aurorayoga@gym.com</a>.</p>
+    <img src="images/Yoga-studio.png" width="100%" height="50%" alt="yoga studio">
+
+    <section id="Reservation-form">
+    <form id="Reservation">
+        <div class="form-group">
+        <h2>Reservation Form</h2>
+            <label for:"first-name">First Name:</label>
+            <input type="text" id="first-name" name="first-name">
+            <label for:"last-name">Last Name:</label>
+            <input type="text" id="last-name" name="last-name">
+            <label for:"email">Email:</label>
+            <input type="email" id="email" name="email">    
+            <label for:"phone">Phone Number:</label>    
+            <input type="tel" id="phone" name="phone">
+        </div>
+        <div class="membership-group">
+            <h2>Membership Plan:</h2>
+            <label for:"basic">Basic Membership</label>
+            <input type="radio" id="basic" name="membership-type" value="basic">
+            <label for:"premium">Premium Membership</label>
+            <input type="radio" id="premium" name="membership-type" value="premium">
+            <label for:"vip">VIP Membership</label>
+            <input type="radio" id="vip" name="membership-type" value="vip">
+            
+        </div>
+        <div class="payment-plan">
+            <h2>Payment Plan:</h2>
+            <label for:"monthly">Monthly</label>
+            <input type="radio" id="monthly" name="payment-plan" value="monthly">
+            <label for:"annually">Annually</label>
+            <input type="radio" id="annually" name="payment-plan" value="annually">
+            
+        </div>
+        <input type="submit" onClick="doRegistr()" value="Start Now!">
+        <input type="button" onClick="doClear()" value="Clear">
+</form>
+    </section>
+</main>
+
+<footer>
+	<p>&copy; 2011 Aurora Yoga Gym. All rights reserved.</p>
+	<p><a href="mailto:Aurorayoga@gym.com">Aurorayoga@gym.com</a></p>
+</footer>
+	</div>
+</body>
+</html>
+	
